@@ -77,9 +77,14 @@ const SearchBooks = () => {
     if (!token) {
       return false;
     }
-
+    //new try/catch block for saving book
     try {
-      await 
+      await saveBook({
+        variables: { input: bookToSave }
+      });
+    } catch (err) {
+      console.error(err);
+    }
 
   
     // try {
