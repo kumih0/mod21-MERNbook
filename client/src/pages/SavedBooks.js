@@ -18,13 +18,14 @@ import { REMOVE_BOOK } from '../utils/mutations';
 
 
 const SavedBooks = () => {
-  // const [userData, setUserData] = useState({});
   //get me from queries, on load
   const { loading, data } = useQuery(GET_ME);
   //create variable for userData to save obj
   const userData = data?.me || {};
 
+  //check if user is loggedin
 
+  // const [userData, setUserData] = useState({});
   // // use this to determine if `useEffect()` hook needs to run again
   // const userDataLength = Object.keys(userData).length;
 
@@ -85,9 +86,13 @@ const SavedBooks = () => {
   return (
     <>
       <div fluid className="text-light bg-dark p-5">
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
+        )}
       </div>
       <Container>
         <h2 className='pt-5'>
