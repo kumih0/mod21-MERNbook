@@ -86,15 +86,16 @@ const SavedBooks = () => {
   return (
     <>
       <div fluid className="text-light bg-dark p-5">
-        {loading ? (
           <div>Loading...</div>
-        ) : (
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
-        )}
       </div>
       <Container>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
         <h2 className='pt-5'>
           {userData.savedBooks.length
             ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
@@ -119,6 +120,8 @@ const SavedBooks = () => {
             );
           })}
         </Row>
+        </>
+        )}
       </Container>
     </>
   );
