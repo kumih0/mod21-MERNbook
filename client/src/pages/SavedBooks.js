@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Container,
   Card,
@@ -24,7 +24,6 @@ const SavedBooks = () => {
   const userData = data?.me || {};
 
   //check if user is loggedin
-
   // const [userData, setUserData] = useState({});
   // // use this to determine if `useEffect()` hook needs to run again
   // const userDataLength = Object.keys(userData).length;
@@ -72,6 +71,7 @@ const SavedBooks = () => {
       //upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
+      console.log(error);
       console.error(err);
     }
   };
