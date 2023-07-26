@@ -6,6 +6,11 @@ import Navbar from './components/Navbar';
 //import apollo client provider
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
+//establish connection to the back-end server's graphql endpoint
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
