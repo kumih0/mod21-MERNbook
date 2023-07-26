@@ -7,8 +7,6 @@ import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 //importing mutation
 import { ADD_USER } from '../utils/mutations';
-import { set } from '../../../server/models/Book';
-import { type } from 'os';
 
 const SignupForm = () => {
   // set initial form state
