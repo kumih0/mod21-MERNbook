@@ -8,3 +8,5 @@ Module 21 Challenge - MERN Book Search Engine
 To find out more about this cool super useful tool, ![click here](https://github.com/FiloSottile/mkcert) or ![here](https://words.filippo.io/mkcert-valid-https-certificates-for-localhost/).
 
 To configure your server to accept SSL certificates at your terminating endpoint (localhost), you can ![read the Apollo documentation here](https://www.apollographql.com/docs/apollo-server/security/terminating-ssl/) for set up and more information.
+
+>>P.S.: As delightful as these additions are, I have yet to make them work properly here T^T
