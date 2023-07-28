@@ -21,8 +21,14 @@ const SavedBooks = () => {
   //get me from queries, on load
   const { loading, data } = useQuery(GET_ME);
   //create variable for userData to save obj
-  const userData = data?.me || {};
+  const userData = data?.me || {
+    username: '',
+    email: '',
+    bookCount: 0,
+    savedBooks: []
+  };
 
+  
   //check if user is loggedin
   // const [userData, setUserData] = useState({});
   // // use this to determine if `useEffect()` hook needs to run again
@@ -100,7 +106,6 @@ const SavedBooks = () => {
   return (
     <>
       <div fluid className="text-light bg-dark p-5">
-        <div>Loading...</div>
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
