@@ -15,9 +15,14 @@ const resolvers = {
             }
 
             throw new AuthenticationError('Not logged in');
-        }
+        },
+        // get all users
+        users: async () => {
+            return User.find()
+                .select('-__v -password')
+                .populate('books')
+        },
     },
-
     Mutation: {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
@@ -48,7 +53,7 @@ const resolvers = {
                     { $push: { savedBooks: input } },
                     { new: true }
                 );
-
+                console.log(updatedUser);
                 return updatedUser;
             }
             throw new AuthenticationError('You need to be logged in!');

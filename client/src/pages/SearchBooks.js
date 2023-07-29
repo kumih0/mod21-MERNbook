@@ -64,15 +64,16 @@ const SearchBooks = () => {
   };
 
   //importing save book mutation
-  const [saveBook, { error, data }] = useMutation(SAVE_BOOK);
+  const [saveBook, { error }] = useMutation(SAVE_BOOK);
 
   // create function to handle saving a book to our database
   const handleSaveBook = async (bookId) => {
     // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
-
+      console.log(bookToSave);
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(token);
 
     if (!token) {
       return false;
@@ -82,10 +83,10 @@ const SearchBooks = () => {
       await saveBook({
         variables: { input: bookToSave }
       });
+
       //if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
-      console.log(error)
       console.error(err);
     }
 
@@ -157,6 +158,11 @@ const SearchBooks = () => {
                           ? 'This book has already been saved!'
                           : 'Save this Book!'}
                       </Button>
+                    )}
+                    {error && (
+                      <div className="my-3 p-3 bg-danger text-white">
+                        {error.message}
+                      </div>
                     )}
                   </Card.Body>
                 </Card>

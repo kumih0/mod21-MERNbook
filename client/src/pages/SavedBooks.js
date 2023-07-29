@@ -22,10 +22,7 @@ const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
   //create variable for userData to save obj
   const userData = data?.me || {
-    username: '',
-    email: '',
-    bookCount: 0,
-    savedBooks: []
+    savedBooks: [],
   };
 
   
